@@ -1,41 +1,38 @@
 local PLUGIN = {}
 
 PLUGIN.doc = [[
-	/help [command]
-	Get list of basic information for all commands, or more detailed documentation on a specified command.
-]]
+	]] .. config.command_start .. config.locale.plugins.help.command .. [[ []] .. config.locale.arguments.command .. [[]
+	]] .. config.locale.plugins.help.help
 
 PLUGIN.triggers = {
-	'^/help',
+	'^' .. config.command_start .. config.locale.plugins.help.command,
 	'^/h$',
 	'^/start$'
 }
 
 function PLUGIN.action(msg)
 
-	if string.find(msg.text, '@') and not string.match(msg.text, 'help@'..bot.username) then return end
+	if string.find(msg.text, '@') and not string.match(msg.text, config.locale.plugins.help.command .. '@'..bot.username) then return end
 
 	local input = get_input(msg.text)
 
 	if input then
 		for i,v in ipairs(plugins) do
 			if v.doc then
-				if '/' .. input == trim_string(first_word(v.doc)) then
+				if config.command_start .. input == trim_string(first_word(v.doc)) then
 					return send_msg(msg, v.doc)
 				end
 			end
 		end
 	end
 
-	local message = 'Available commands:\n' .. help_message .. [[
-		*Arguments: <required> [optional]
-	]]
+	local message = config.locale.plugins.help.intro .. '\n' .. help_message .. '\n' .. config.locale.plugins.help.arguments
 
 	if msg.from.id ~= msg.chat.id then
 		if not send_message(msg.from.id, message, true, msg.message_id) then
 			return send_msg(msg, message) -- Unable to PM user who hasn't PM'd first.
 		end
-		return send_msg(msg, 'I have sent you the requested information in a private message.')
+		return send_msg(msg, config.locale.message.private_message)
 	else
 		return send_msg(msg, message)
 	end

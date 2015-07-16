@@ -1,10 +1,10 @@
-# otouto
+# petouto
 
 The plugin-wielding, multi-purpose Telegram bot.
 
-Public bot runs on [@mokubot](http://telegram.me/mokubot).
+Public bot runs on [@petoutobot](http://telegram.me/petoutobot).
 
-To start, send "/start" or say "Hello, otouto."
+To start, send "/start" or say "Hello, petouto."
 
 
 ##Plugins
