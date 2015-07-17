@@ -12,9 +12,17 @@ function on_msg_receive(msg)
 
 	msg = process_msg(msg)
 
-	if msg.date < os.time() - 5 then return end -- don't react to old messages
-	if not msg.text then return end -- don't react to media messages
-	--if msg.forward_from then return end -- don't react to forwarded messages
+	if config.ignore.old_messages and config.ignore.old_messages == true then -- don't react to old messages
+		if msg.date < os.time() - 5 then return end
+	end
+
+	if config.ignore.media_messages and config.ignore.media_messages == true then -- don't react to media messages
+		if not msg.text then return end
+	end
+
+	if config.ignore.forwarded_messages and config.ignore.forwarded_messages == true then  -- don't react to forwarded messages
+		if msg.forward_from then return end
+	end
 
 	local lower = string.lower(msg.text)
 	for i,v in pairs(plugins) do

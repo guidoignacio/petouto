@@ -3,7 +3,13 @@ return {
 	biblia_api_key = '',
 	giphy_api_key = 'dc6zaTOxFJmzC',
 	time_offset = 0,
-	locale = dofile('loc.en'),
+	command_start = '/',
+	ignore = {
+		old_messages = true,
+		media_messages = true,
+		forwarded_messages = false
+	},
+	locale = dofile('loc/en.lua'),
 	admins = {
 		0
 	},
