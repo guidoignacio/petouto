@@ -1,12 +1,9 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/echo <text>
-	Repeat a string.
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.echo.command .. ' <' .. config.locale.arguments.text .. '>\n' .. config.locale.plugins.echo.help
 
 PLUGIN.triggers = {
-	'^/echo'
+	'^' .. config.command_start .. config.locale.plugins.echo.command
 }
 
 function PLUGIN.action(msg)

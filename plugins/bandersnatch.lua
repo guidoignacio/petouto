@@ -1,13 +1,10 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/bandersnatch
-	This is a Benedict Cumberbatch name generator.
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.bandersnatch.command .. '\n' .. config.locale.plugins.bandersnatch.help
 
 PLUGIN.triggers = {
-	'^/bandersnatch',
-	'^/bc$'
+	'^' .. config.command_start .. config.locale.plugins.bandersnatch.command,
+	'^' .. config.command_start .. 'bc$'
 }
 
 PLUGIN.fullnames = { "Wimbledon Tennismatch", "Rinkydink Curdlesnoot", "Butawhiteboy Cantbekhan", "Benadryl Claritin", "Bombadil Rivendell", "Wanda's Crotchfruit", "Biblical Concubine", "Syphilis Cankersore", "Buckminster Fullerene", "Bourgeoisie Capitalist" }

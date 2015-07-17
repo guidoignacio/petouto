@@ -1,13 +1,10 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/dogify <lines/separatedby/slashes>
-	Produces a doge image from dogr.io. Newlines are indicated by a forward slash. Words do not need to be spaced, but spacing is supported. Will post a previewed link rather than an image.
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.dogify.command .. ' <' .. config.locale.arguments.lines .. '>\n' .. config.locale.plugins.dogify.help
 
 PLUGIN.triggers = {
-	'^/doge ',
-	'^/dogify '
+	'^' .. config.command_start .. 'doge ',
+	'^' .. config.command_start .. config.locale.plugins.dogify.command .. ' '
 }
 
 function PLUGIN.action(msg)

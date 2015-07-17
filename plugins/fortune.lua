@@ -1,13 +1,10 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/fortune
-	Get a random fortune from the UNIX fortune program.
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.fortune.command .. ' [' .. config.locale.arguments.command .. ']\n' .. config.locale.plugins.fortune.help
 
 PLUGIN.triggers = {
-	'^/fortune',
-	'^/f$'
+	'^' .. config.command_start .. config.locale.plugins.fortune.command,
+	'^' .. config.command_start .. 'f$'
 }
 
 function PLUGIN.action(msg)

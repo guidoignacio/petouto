@@ -1,12 +1,9 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/commit
-	http://whatthecommit.com.
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.commit.command .. '\n' .. config.locale.plugins.commit.help
 
 PLUGIN.triggers = {
-	'^/commit'
+	'^' .. config.command_start .. config.locale.plugins.commit.command
 }
 
 function PLUGIN.action(msg)

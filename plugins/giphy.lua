@@ -1,13 +1,15 @@
 local PLUGIN = {}
 
+PLUGIN.doc = config.command_start .. config.locale.plugins.giphy.command .. ' [' .. config.locale.arguments.query .. ']\n' .. config.locale.plugins.giphy.help
+
 PLUGIN.doc = [[
 	/giphy [query]
 	Returns a random or search-resulted GIF from giphy.com. Results are limited to PG-13 by default; use '/gifnsfw' to get potentially NSFW results.
 ]]
 
 PLUGIN.triggers = {
-	'^/giphy',
-	'^/gifnsfw'
+	'^' .. config.command_start .. config.locale.plugins.giphy.command ,
+	'^' .. config.command_start .. 'gifnsfw'
 }
 
 function PLUGIN.action(msg)
@@ -16,7 +18,7 @@ function PLUGIN.action(msg)
 	local random_url = 'http://tv.giphy.com/v1/gifs/random?api_key=' .. config.giphy_api_key
 	local result_url = ''
 
-	if string.match(msg.text, '^/giphynsfw') then
+	if string.match(msg.text, '^' .. config.command_start .. 'giphynsfw') then
 		search_url = search_url .. '&rating=r&q='
 		random_url = random_url .. '&rating=r'
 	else

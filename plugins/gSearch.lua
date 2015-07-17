@@ -1,22 +1,19 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/google <query>
-	This command performs a Google search for the given query. Four results are returned. Safe search is enabled by default; use '/gnsfw' to get potentially NSFW results. Four results are returned for a group chat, or eight in a private message.
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.gSearch.command .. ' <' .. config.locale.arguments.query .. '>\n' .. config.locale.plugins.gSearch.help
 
 PLUGIN.triggers = {
-	'^/g ',
-	'^/g$',
-	'^/google',
-	'^/gnsfw'
+	'^' .. config.command_start .. 'g ',
+	'^' .. config.command_start .. 'g$',
+	'^' .. config.command_start .. config.locale.plugins.gSearch.command,
+	'^' .. config.command_start .. 'gnsfw'
 }
 
 function PLUGIN.action(msg)
 
 	local url = 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0'
 
-	if not string.match(msg.text, '^/gnsfw ') then
+	if not string.match(msg.text, '^' .. config.command_start .. 'gnsfw ') then
 		url = url .. '&safe=active'
 	end
 

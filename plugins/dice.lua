@@ -1,13 +1,9 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/roll [arg]
-	Roll a die. Use any positive number for range or use D&D notation.
-	Example: /roll 4D100 will roll a 100-sided die four times.
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.dice.command .. ' [' .. config.locale.arguments.argument .. ']\n' .. config.locale.plugins.dice.help
 
 PLUGIN.triggers = {
-	'^/roll'
+	'^' .. config.command_start .. config.locale.plugins.dice.command
 }
 
 function PLUGIN.action(msg)
@@ -52,7 +48,7 @@ function PLUGIN.action(msg)
 	end
 
 	if tonumber(rolls) > 100 or tonumber(range) > 100000 then
-		return send_msg(msg, 'Max 100D100000')
+		return send_msg(msg, config.locale.plugins.dice.max)
 	end
 
 	for i = 1, tonumber(rolls) do

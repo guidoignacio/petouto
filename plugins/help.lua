@@ -1,12 +1,10 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	]] .. config.command_start .. config.locale.plugins.help.command .. [[ []] .. config.locale.arguments.command .. [[]
-	]] .. config.locale.plugins.help.help
+PLUGIN.doc = config.command_start .. config.locale.plugins.help.command .. ' [' .. config.locale.arguments.command .. ']\n' .. config.locale.plugins.help.help
 
 PLUGIN.triggers = {
 	'^' .. config.command_start .. config.locale.plugins.help.command,
-	'^/h$',
+	'^' .. config.command_start .. 'h$',
 	'^/start$'
 }
 

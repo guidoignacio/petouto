@@ -70,7 +70,7 @@ function bot_init()
 	for i,v in ipairs(plugins) do
 		if v.doc then
 			local a = string.sub(v.doc, 1, string.find(v.doc, '\n')-1)
-			print(a)
+			print('\t' .. a)
 			help_message = help_message .. ' - ' .. a .. '\n'
 		end
 	end
