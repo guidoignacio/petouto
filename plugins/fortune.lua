@@ -1,6 +1,6 @@
 local PLUGIN = {}
 
-PLUGIN.doc = config.command_start .. config.locale.plugins.fortune.command .. ' [' .. config.locale.arguments.command .. ']\n' .. config.locale.plugins.fortune.help
+PLUGIN.doc = config.command_start .. config.locale.plugins.fortune.command .. '\n' .. config.locale.plugins.fortune.help
 
 PLUGIN.triggers = {
 	'^' .. config.command_start .. config.locale.plugins.fortune.command,

@@ -2,7 +2,7 @@
 
 local PLUGIN = {}
 
-PLUGIN.doc = config.command_start .. config.locale.plugins.time.command .. ' [' .. config.locale.arguments.location .. ']\n' .. config.locale.plugins.time.help
+PLUGIN.doc = config.command_start .. config.locale.plugins.time.command .. ' <' .. config.locale.arguments.location .. '>\n' .. config.locale.plugins.time.help
 
 PLUGIN.triggers = {
 	'^' .. config.command_start .. config.locale.plugins.time.command

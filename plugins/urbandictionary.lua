@@ -1,6 +1,6 @@
 local PLUGIN = {}
 
-PLUGIN.doc = config.command_start .. config.locale.plugins.urbandictionary.command .. ' [' .. config.locale.arguments.term .. ']\n' .. config.locale.plugins.urbandictionary.help
+PLUGIN.doc = config.command_start .. config.locale.plugins.urbandictionary.command .. ' <' .. config.locale.arguments.term .. '>\n' .. config.locale.plugins.urbandictionary.help
 
 PLUGIN.triggers = {
 	'^' .. config.command_start .. 'ud',

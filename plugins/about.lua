@@ -10,6 +10,8 @@ PLUGIN.triggers = {
 function PLUGIN.action(msg)
 
 	local message = config.locale.plugins.about.intro .. '\n\n' .. config.locale.plugins.about.version -- Please do not remove this message.
+	message = message:gsub('#BOT_NAME', bot.first_name)
+	message = message:gsub('#VERSION', VERSION)
 
 	send_message(msg.chat.id, message, true)
 

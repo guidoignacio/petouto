@@ -42,6 +42,16 @@ function PLUGIN.action(msg)
 		is_started = false
 		message = config.locale.plugins.admin.halt
 
+	elseif string.lower(first_word(input)) == 'msg' then
+
+		if not get_input(input) then
+			return send_msg(msg, config.locale.errors.argument)
+		end
+
+		message = first_word(get_input(input)) .. ': ' .. get_input(input):gsub(first_word(get_input(input)), "")
+
+		return send_message(first_word(get_input(input)), get_input(input):gsub(first_word(get_input(input)), ""))
+
 	end
 
 	send_msg(msg, message)

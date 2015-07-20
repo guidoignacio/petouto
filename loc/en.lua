@@ -49,7 +49,8 @@ return {
 		message		= 'message',
 		victim		= 'victim',
 		term		= 'term',
-		search		= 'search'
+		search		= 'search',
+		name		= 'name'
 	},
 	plugins = {
 		about = {
@@ -225,6 +226,29 @@ return {
 		xkcd = {
 			command		= 'xkcd',
 			help		= 'This command returns an xkcd strip, its number, and its "secret" text. You may search for a specific strip or get a random one.',
+		},
+		taunt = {
+			command		= 'taunt',
+			help		= 'Make people feel like shit.',
+			quotes = {
+				"#VICTIM, your mother should have queefed you into some toilet paper when the milkman was pulling his pants back up.",
+				"#VICTIM, you should try out for solo porn...",
+				"#VICTIM, your mother should have queefed you into some toilet paper when the milkman was pulling his pants back up.",
+				"#VICTIM, did you fail your IQ test?",
+				"#VICTIM, your brain must feel good as new, seeing as you never use it.",
+				"#VICTIM, your parents must be twins.",
+				"#VICTIM, how many extra chromosomes you packin'?",
+				"#VICTIM, you must have been born on a highway, because that's where most accidents happen.",
+				"#VICTIM, shut up, you'll never be the man your mother is.",
+				"#VICTIM, you sir, are a cunt.",
+			}
+		},
+		praise = {
+			command		= 'praise',
+			help		= 'Makes people feel better.',
+			quotes = {
+				"#NAME, you look nice today!",
+			}
 		},
 	}
 }

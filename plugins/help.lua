@@ -5,6 +5,7 @@ PLUGIN.doc = config.command_start .. config.locale.plugins.help.command .. ' [' 
 PLUGIN.triggers = {
 	'^' .. config.command_start .. config.locale.plugins.help.command,
 	'^' .. config.command_start .. 'h$',
+	'^/start@' .. bot.username,
 	'^/start$'
 }
 
@@ -30,7 +31,7 @@ function PLUGIN.action(msg)
 		if not send_message(msg.from.id, message, true, msg.message_id) then
 			return send_msg(msg, message) -- Unable to PM user who hasn't PM'd first.
 		end
-		return send_msg(msg, config.locale.message.private_message)
+		return send_msg(msg, config.locale.messages.private_message)
 	else
 		return send_msg(msg, message)
 	end

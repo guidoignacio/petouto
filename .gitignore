@@ -1,3 +1,5 @@
 config.lua
 loc/weeb.lua
 loc/peto.lua
+plugins/brovrashgka.lua
+plugins/logger.lua

@@ -1,6 +1,6 @@
 local PLUGIN = {}
 
-PLUGIN.doc = config.command_start .. config.locale.plugins.pokedex.command .. ' <' .. config.locale.arguments.command .. '>\n' .. config.locale.plugins.pokedex.help
+PLUGIN.doc = config.command_start .. config.locale.plugins.pokedex.command .. ' <' .. config.locale.arguments.pokemon .. '>\n' .. config.locale.plugins.pokedex.help
 
 PLUGIN.triggers = {
 	'^' .. config.command_start .. config.locale.plugins.pokedex.command
