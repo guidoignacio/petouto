@@ -57,6 +57,13 @@ function bot_init()
 	for k,v in pairs(bot) do
 		print('',k,v)
 	end
+	if string.find(bot.first_name, '%-') then
+		bot.first_name = string.lower(string.sub(bot.first_name, 1, string.find(bot.first_name, '%-')-1))
+	else
+		bot.first_name = string.lower(bot.first_name)
+	end
+
+	bot.username = string.lower(bot.username)
 
 	print('Bot information retrieved!\n')
 	print('Loading plugins...')
@@ -104,6 +111,10 @@ function process_msg(msg)
 
 	if msg.new_chat_participant and msg.new_chat_participant.id == bot.id then
 		msg.text = '/about'
+	end
+
+	if msg.reply_to_message and msg.reply_to_message.from.id == bot.id then
+		msg.text = bot.first_name .. ' ' .. msg.text
 	end
 
 	return msg

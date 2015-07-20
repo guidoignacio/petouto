@@ -124,6 +124,7 @@ return {
 			help		= 'This command solves math expressions and does conversion between common units. See mathjs.org/docs/expressions/syntax for a list of accepted syntax.',
 		},
 		chatter = {
+			language	= 'en',
 			no_connection	= 'I don\'t feel like talking right now.',
 			no_response	= 'I don\'t know what to say to that.',
 		},
