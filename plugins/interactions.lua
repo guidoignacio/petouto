@@ -7,13 +7,7 @@ local PLUGIN = {}
 
 PLUGIN.no_typing = true
 
-PLUGIN.triggers = {
-	bot.first_name .. '%p?$',
-	'@' .. bot.username .. '%p?$',
-	'^tadaima%p?$',
-	'^i\'m home%p?$',
-	'^i\'m back%p?$'
-}
+PLUGIN.triggers = {''}
 
 function PLUGIN.action(msg)
 
@@ -21,15 +15,16 @@ function PLUGIN.action(msg)
 
 	if config.people[tostring(msg.from.id)] then msg.from.first_name = config.people[tostring(msg.from.id)] end
 
-	for i = 3, #PLUGIN.triggers do
-		if string.match(input, PLUGIN.triggers[i]) then
-			return send_message(msg.chat.id, 'Welcome back, ' .. msg.from.first_name .. '!')
-		end
+	-- if the first name end with -chan, -tan, -kun or similar it ignores them
+	if string.find(bot.first_name, '%-') then
+		bot.first_name = string.lower(string.sub(bot.first_name, 1, string.find(bot.first_name, '%-')-1))
+	else
+		bot.first_name = string.lower(bot.first_name)
 	end
 
 	for k,v in pairs(config.locale.interactions) do
 		for key,val in pairs(v) do
-			if input:match(val..',? '..bot.first_name) then
+			if input:match(val:gsub('#BOTNAME', bot.first_name)) then
 				return send_message(msg.chat.id, k:gsub('#NAME', msg.from.first_name))
 			end
 		end

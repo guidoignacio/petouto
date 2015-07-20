@@ -1,15 +1,24 @@
 return {
 	interactions = { -- Add to this table as you'd like.
 		['Hello, #NAME.'] = {
-			'hello',
-			'hey',
-			'hi'
+			'hello,? #BOTNAME',
+			'hey,? #BOTNAME',
+			'hi,? #BOTNAME'
 		},
 		['Goodbye, #NAME.'] = {
-			'bye',
-			'later',
-			'see ya'
-		}
+			'bye,? #BOTNAME',
+			'later,? #BOTNAME',
+			'see ya,? #BOTNAME'
+		},
+		['No problem, #NAME.'] = {
+			'thanks,? #BOTNAME',
+			'thank you,? #BOTNAME'
+		},
+		['Welcome back, #NAME!'] = {
+			'i\'m back',
+			'i\'m home',
+			'tadaima'
+		},
 	},
 	messages = {
 		private_message = 'I have sent you the requested information in a private message.'
@@ -31,7 +40,16 @@ return {
 		lines		= 'lines/separatedby/slashes',
 		text		= 'text',
 		query		= 'query',
-		location	= 'location'
+		location	= 'location',
+		movie_tv_series	= 'movie | TV series',
+		number		= 'number',
+		pokemon		= 'pokemon',
+		subreddit	= 'r/subreddit',
+		delay		= 'delay',
+		message		= 'message',
+		victim		= 'victim',
+		term		= 'term',
+		search		= 'search'
 	},
 	plugins = {
 		about = {
@@ -144,6 +162,69 @@ return {
 		giphy = {
 			command		= 'giphy',
 			help		= 'Returns a random or search-resulted GIF from giphy.com. Results are limited to PG-13 by default; use \'/gifnsfw\' to get potentially NSFW results.',
+		},
+		hackernews = {
+			command		= 'hackernews',
+			help		= 'Returns some top stories from Hacker News. Four in a group or eight in a private message.',
+		},
+		hex = {
+			command		= 'hex',
+			help		= 'This function converts a number to or from hexadecimal.',
+		},
+		imdb = {
+			command		= 'imdb',
+			help		= 'This function retrieves the IMDb info for a given film or television series, including the year, genre, imdb rating, runtime, and a summation of the plot.',
+		},
+		lmgtfy = {
+			command		= 'lmgtfy',
+		},
+		pokedex = {
+			command		= 'dex',
+			help		= 'Get Pokedex information for a given Pokemon.\nIncludes national ID number, type, height, weight, and a description from a random regional dex.',
+		},
+		pun = {
+			command		= 'pun',
+			help		= 'Get a random pun.\nHave a recommendation? PM @topkecleon.',
+		},
+		reddit = {
+			command		= 'reddit',
+			help		= 'This command returns top results for a given query or subreddit. NSFW posts are marked as such.',
+		},
+		remind = {
+			command		= 'remind',
+			help		= 'Set a reminder for yourself. First argument is the number of minutes until you wish to be reminded.',
+			no_delay	= 'The delay must be a number.',
+			no_message	= 'Please include a reminder.',
+			minutes		= 'minutes',
+			seconds		= 'seconds',
+			reminder_set	= 'Your reminder has been set for #DELAY from now:\n#TEXT',
+			reminder	= 'Reminder:'
+		},
+		slap = {
+			command		= 'slap',
+			help		= 'Slap someone!',
+		},
+		time = {
+			command		= 'time',
+			help		= 'Sends the time and timezone for a given location.',
+		},
+		urbandictionary = {
+			command		= 'urbandictionary',
+			help		= 'Returns the first definition for a given term from Urban Dictionary.',
+		},
+		weather = {
+			command		= 'weather',
+			help		= 'Returns the current temperature and weather conditions for a specified location.\nNon-city locations are accepted; "/weather Buckingham Palace" will return the weather for Westminster.',
+		},
+		whoami = {
+			command		= 'whoami',
+			help		= 'Get the user ID for yourself and the group. Use it in a reply to get info for the sender of the original message.',
+			who		= 'who',
+			message		= 'You are #FROM and you are messaging #TO.'
+		},
+		xkcd = {
+			command		= 'xkcd',
+			help		= 'This command returns an xkcd strip, its number, and its "secret" text. You may search for a specific strip or get a random one.',
 		},
 	}
 }

@@ -1,14 +1,11 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/reddit [r/subreddit | query]
-	This command returns top results for a given query or subreddit. NSFW posts are marked as such.
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.reddit.command .. ' [' .. config.locale.arguments.subreddit .. ' | ' .. config.locale.arguments.query .. ']\n' .. config.locale.plugins.reddit.help
 
 PLUGIN.triggers = {
-	'^/reddit',
-	'^/r$',
-	'^/r '
+	'^' .. config.command_start .. config.locale.plugins.reddit.command,
+	'^' .. config.command_start .. 'r$',
+	'^' .. config.command_start .. 'r '
 }
 
 function PLUGIN.action(msg)

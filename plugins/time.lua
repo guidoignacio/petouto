@@ -2,13 +2,10 @@
 
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/time <location>
-	Sends the time and timezone for a given location.
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.time.command .. ' [' .. config.locale.arguments.location .. ']\n' .. config.locale.plugins.time.help
 
 PLUGIN.triggers = {
-	'^/time'
+	'^' .. config.command_start .. config.locale.plugins.time.command
 }
 
 function PLUGIN.action(msg)

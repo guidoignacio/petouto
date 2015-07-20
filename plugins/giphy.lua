@@ -2,11 +2,6 @@ local PLUGIN = {}
 
 PLUGIN.doc = config.command_start .. config.locale.plugins.giphy.command .. ' [' .. config.locale.arguments.query .. ']\n' .. config.locale.plugins.giphy.help
 
-PLUGIN.doc = [[
-	/giphy [query]
-	Returns a random or search-resulted GIF from giphy.com. Results are limited to PG-13 by default; use '/gifnsfw' to get potentially NSFW results.
-]]
-
 PLUGIN.triggers = {
 	'^' .. config.command_start .. config.locale.plugins.giphy.command ,
 	'^' .. config.command_start .. 'gifnsfw'

@@ -1,12 +1,9 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/imdb <movie | TV series>
-	This function retrieves the IMDb info for a given film or television series, including the year, genre, imdb rating, runtime, and a summation of the plot.
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.imdb.command .. ' <' .. config.locale.arguments.movie_tv_series .. '>\n' .. config.locale.plugins.imdb.help
 
 PLUGIN.triggers = {
-	'^/imdb'
+	'^' .. config.command_start .. config.locale.plugins.imdb.command
 }
 
 function PLUGIN.action(msg)

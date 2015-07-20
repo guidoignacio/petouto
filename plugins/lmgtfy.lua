@@ -1,7 +1,7 @@
 local PLUGIN = {}
 
 PLUGIN.triggers = {
-	'^/lmgtfy'
+	'^' .. config.command_start .. config.locale.plugins.lmgtfy.command,
 }
 
 function PLUGIN.action(msg)

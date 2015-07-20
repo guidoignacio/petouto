@@ -1,13 +1,10 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/remind <delay> <message>
-	Set a reminder for yourself. First argument is the number of minutes until you wish to be reminded.
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.remind.command .. ' <' .. config.locale.arguments.delay .. '> <' .. config.locale.arguments.message .. '>\n' .. config.locale.plugins.remind.help
 
 PLUGIN.triggers = {
-	'^/remind$',
-	'^/remind '
+	'^' .. config.command_start .. config.locale.plugins.remind.command .. '$',
+	'^' .. config.command_start .. config.locale.plugins.remind.command .. ' '
 }
 
 function PLUGIN.action(msg)
@@ -19,11 +16,11 @@ function PLUGIN.action(msg)
 
 	local delay = first_word(input)
 	if not tonumber(delay) then
-		return send_msg(msg, 'The delay must be a number.')
+		return send_msg(msg, config.locale.plugins.remind.no_delay)
 	end
 
 	if string.len(msg.text) <= string.len(delay) + 9 then
-		return send_msg(msg, 'Please include a reminder.')
+		return send_msg(msg, config.locale.plugins.remind.no_message)
 	end
 	local text = string.sub(msg.text, string.len(delay)+10) -- this is gross
 	if msg.from.username then
@@ -41,12 +38,12 @@ function PLUGIN.action(msg)
 	table.insert(reminders, reminder)
 
 	if delay <= 1 then
-		delay = (delay * 60) .. ' seconds'
+		delay = (delay * 60) .. ' ' .. config.locale.plugins.remind.seconds
 	else
-		delay = delay .. ' minutes'
+		delay = delay .. ' ' .. config.locale.plugins.remind.minutes
 	end
 
-	local message = 'Your reminder has been set for ' .. delay .. ' from now:\n' .. text
+	local message = config.locale.plugins.remind.reminder_set:gsub('#DELAY', delay):gsub('#TEXT', text)
 
 	send_msg(msg, message)
 

@@ -1,12 +1,9 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/slap [victim]
-	Slap someone!
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.slap.command .. ' [' .. config.locale.arguments.victim .. ']\n' .. config.locale.plugins.slap.help
 
 PLUGIN.triggers = {
-	'^/slap'
+	'^' .. config.command_start .. config.locale.plugins.slap.command
 }
 
 function PLUGIN.getSlap(slapper, victim)
@@ -91,7 +88,24 @@ function PLUGIN.getSlap(slapper, victim)
 		slapper .. " slaps " .. victim .. " with a DMCA takedown request!",
 		victim .. " became a corpse blanket for " .. slapper .. ".",
 		"Death is when the monsters get you. Death comes for " .. victim .. ".",
-		"Cowards die many times before their death. " .. victim .. " never tasted death but once."
+		"Cowards die many times before their death. " .. victim .. " never tasted death but once.",
+		victim .. " tripped while running with scissors.",
+		"A piano fell on " .. victim .. "'s head.",
+		victim .. " was assassinated by ninjas.",
+		victim .. " accidentally ripped his own heart off.",
+		victim .. " choked to death while deepthroating a BBC.",
+		victim .. " died of boredom.",
+		victim .. " was fortuitously stabbed in the chest with a knife. 47 times.",
+		victim .. " tried to tickle a grizzly bear.",
+		victim .. " tried bungee jumping for the first time. And last.",
+		"A rabid hamster ripped " .. victim .. "'s throat off.",
+		victim .. " thought eating thumbtacks was a good idea.",
+		victim .. " died of plain stupidity.",
+		victim .. " was wiped out the Earth's surface by his archenemy.",
+		victim .. " angered the wrong god.",
+		victim .. " died of extreme diarrhea.",
+		victim .. " was beaten to death by Spongebob.",
+		"A malfunctioning blender eviscerated " .. victim .. "."
 	}
 	return slaps[math.random(#slaps)]
 end

@@ -129,7 +129,7 @@ while is_started == true do
 
 	for i,v in pairs(reminders) do
 		if os.time() > v.alarm then
-			local a = send_message(v.chat_id, 'Reminder: '..v.text)
+			local a = send_message(v.chat_id, config.locale.plugins.remind.reminder .. ' '..v.text)
 			if a then
 				table.remove(reminders, i)
 			end

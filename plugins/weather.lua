@@ -1,13 +1,9 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/weather <location>
-	Returns the current temperature and weather conditions for a specified location.
-	Non-city locations are accepted; "/weather Buckingham Palace" will return the weather for Westminster.
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.weather.command .. ' <' .. config.locale.arguments.location .. '>\n' .. config.locale.plugins.weather.help
 
 PLUGIN.triggers = {
-	'^/weather'
+	'^' .. config.command_start .. config.locale.plugins.weather.command
 }
 
 function PLUGIN.action(msg)

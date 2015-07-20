@@ -1,13 +1,10 @@
 local PLUGIN = {}
 
-PLUGIN.doc = [[
-	/ud <term>
-	Returns the first definition for a given term from Urban Dictionary.
-]]
+PLUGIN.doc = config.command_start .. config.locale.plugins.urbandictionary.command .. ' [' .. config.locale.arguments.term .. ']\n' .. config.locale.plugins.urbandictionary.help
 
 PLUGIN.triggers = {
-	'^/ud',
-	'^/urbandictionary'
+	'^' .. config.command_start .. 'ud',
+	'^' .. config.command_start .. config.locale.plugins.urbandictionary.command
 }
 
 function PLUGIN.action(msg)
