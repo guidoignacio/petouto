@@ -50,7 +50,8 @@ return {
 		victim		= 'victim',
 		term		= 'term',
 		search		= 'search',
-		name		= 'name'
+		name		= 'name',
+		target_lang	= 'target lang'
 	},
 	plugins = {
 		about = {
@@ -151,7 +152,7 @@ return {
 		},
 		gImages = {
 			command		= 'image',
-			help		= 'This command performs a Google Images search for the given query. One random top result is returned. Safe search is enabled by default; use \'/insfw\' to get potentially NSFW results.',
+			help		= 'This command performs a Google Images search for the given query. One random top result is returned. Safe search is enabled by default; use \'/insfw\' to get potentially NSFW results.\nWant GIFs sent directly to chat? Try @ImageBot.',
 		},
 		gSearch = {
 			command		= 'google',
@@ -163,7 +164,7 @@ return {
 		},
 		giphy = {
 			command		= 'giphy',
-			help		= 'Returns a random or search-resulted GIF from giphy.com. Results are limited to PG-13 by default; use \'/gifnsfw\' to get potentially NSFW results.',
+			help		= 'Returns a random or search-resulted GIF from giphy.com. Results are limited to PG-13 by default; use \'/gifnsfw\' to get potentially NSFW results.\nWant GIFs sent directly to chat? Try @ImageBot.',
 		},
 		hackernews = {
 			command		= 'hackernews',
@@ -210,6 +211,11 @@ return {
 			command		= 'time',
 			help		= 'Sends the time and timezone for a given location.',
 		},
+		translate = {
+			command		= 'translate',
+			help		= 'Reply to a message to translate it to the default language.',
+			language	= 'en'
+		},
 		urbandictionary = {
 			command		= 'urbandictionary',
 			help		= 'Returns the first definition for a given term from Urban Dictionary.',
@@ -251,6 +257,6 @@ return {
 				"#NAME, you look nice today!",
 			}
 		},
-	}
+	},
 }
 

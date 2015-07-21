@@ -1,5 +1,6 @@
 local PLUGIN = {}
 
+
 PLUGIN.doc = config.command_start .. config.locale.plugins.gImages.command .. ' <' .. config.locale.arguments.query .. '>\n' .. config.locale.plugins.gImages.help
 
 PLUGIN.triggers = {
