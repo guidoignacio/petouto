@@ -58,11 +58,12 @@ return {
 		about = {
 			command		= 'about',
 			help		= 'Information about the bot',
-			intro		= [[I am #BOT_NAME: a plugin-wielding, multi-purpose Telegram bot.
-					Use /help for a list of commands.]],
-			version		= [[Based on otouto v#VERSION by @topkecleon.
-					otouto v2 is licensed under the GPLv2.
-					topkecleon.github.io/otouto]]
+			intro		= 'I am #BOT_NAME: a plugin-wielding, multi-purpose Telegram bot.\n' ..
+					  'Use /help for a list of commands.',
+			version		= 'Petouto is a fork by @luksireiku based on otouto v#VERSION by @topkecleon.\n' ..
+					  'petouto and otouto v2 are licensed under the GPLv2.\n' ..
+					  'topkecleon.github.io/otouto\n' ..
+					  'github.com/luksireiku/petouto'
 		},
 		help = {
 			command		= 'help',
@@ -115,11 +116,13 @@ return {
 		},
 		btc = {
 			command		= 'btc',
-			help		= 'Gives bitcoin prices for the given currency, and optionally conversion of an amount to and from that currency.\nBitcoinAverage Price Index https://bitcoinaverage.com/',
+			help		= 'Gives bitcoin prices for the given currency, and optionally conversion of an amount to and from that currency.\n' .. 
+					  'BitcoinAverage Price Index https://bitcoinaverage.com/',
 		},
 		bible = {
 			command		= 'bible',
-			help		= 'Returns a verse from the bible, King James Version. Use a standard or abbreviated reference (John 3:16, Jn3:16).\nhttp://biblia.com',
+			help		= 'Returns a verse from the bible, King James Version. Use a standard or abbreviated reference (John 3:16, Jn3:16).\n' ..
+					  'http://biblia.com',
 		},
 		calc = {
 			command		= 'calc',
@@ -136,7 +139,8 @@ return {
 		},
 		dice = {
 			command		= 'roll',
-			help		= 'Roll a die. Use any positive number for range or use D&D notation.\nExample: /roll 4D100 will roll a 100-sided die four times.',
+			help		= 'Roll a die. Use any positive number for range or use D&D notation.\n' ..
+					  'Example: /roll 4D100 will roll a 100-sided die four times.',
 			max		= 'Max 100D100000'
 		},
 		dogify = {
@@ -184,7 +188,8 @@ return {
 		},
 		pokedex = {
 			command		= 'dex',
-			help		= 'Get Pokedex information for a given Pokemon.\nIncludes national ID number, type, height, weight, and a description from a random regional dex.',
+			help		= 'Get Pokedex information for a given Pokemon.\n' ..
+					  'Includes national ID number, type, height, weight, and a description from a random regional dex.',
 		},
 		pun = {
 			command		= 'pun',
@@ -223,7 +228,8 @@ return {
 		},
 		weather = {
 			command		= 'weather',
-			help		= 'Returns the current temperature and weather conditions for a specified location.\nNon-city locations are accepted; "/weather Buckingham Palace" will return the weather for Westminster.',
+			help		= 'Returns the current temperature and weather conditions for a specified location.\n' ..
+					  'Non-city locations are accepted; "/weather Buckingham Palace" will return the weather for Westminster.',
 		},
 		whoami = {
 			command		= 'whoami',
@@ -260,11 +266,11 @@ return {
 		},
                 danbooru = {
                         command         = 'danbooru',
-                        help            = 'Gets a random search-resulted image from Danbooru.'
+                        help            = 'Gets a random search-resulted image from Danbooru which matches the tags given, the tags are separated by spaces.'
                 },
                 konachan = {
                         command         = 'konachan',
-                        help            = 'Gets a random search-resulted image from Konachan.'
+                        help            = 'Gets a random search-resulted image from Konachan which matches the tags given, the tags are separated by spaces.'
                 },
 	},
 }
