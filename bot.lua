@@ -120,13 +120,13 @@ function process_msg(msg)
 	and msg.reply_to_message.from.id == bot.id
 	and string.match(msg.text, '^[^' .. config.command_start .. ']')
 	then
-		msg.text = bot.first_name .. ' ' .. msg.text
+		msg.text = '@' .. bot_username .. ' ' .. msg.text
 	end
 
 	if msg.chat.id == msg.from.id
 	and string.match(msg.text, '^[^' .. config.command_start .. ']')
 	then
-		msg.text = bot.first_name .. ' ' .. msg.text
+		msg.text = '@' .. bot_username .. ' ' .. msg.text
 	end
 
 	return msg
