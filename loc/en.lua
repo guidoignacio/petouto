@@ -51,7 +51,8 @@ return {
 		term		= 'term',
 		search		= 'search',
 		name		= 'name',
-		target_lang	= 'target lang'
+		target_lang	= 'target lang',
+		tags		= 'tags'
 	},
 	plugins = {
 		about = {
@@ -176,7 +177,7 @@ return {
 		},
 		imdb = {
 			command		= 'imdb',
-			help		= 'This function retrieves the IMDb info for a given film or television series, including the year, genre, imdb rating, runtime, and a summation of the plot.',
+			help		= 'This function retrieves the IMDB info for a given film or television series, including the year, genre, imdb rating, runtime, and a summation of the plot.',
 		},
 		lmgtfy = {
 			command		= 'lmgtfy',
@@ -257,6 +258,14 @@ return {
 				"#NAME, you look nice today!",
 			}
 		},
+                danbooru = {
+                        command         = 'danbooru',
+                        help            = 'Gets a random search-resulted image from Danbooru.'
+                },
+                konachan = {
+                        command         = 'konachan',
+                        help            = 'Gets a random search-resulted image from Konachan.'
+                },
 	},
 }
 

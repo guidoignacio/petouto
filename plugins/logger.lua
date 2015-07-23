@@ -15,13 +15,13 @@ function PLUGIN.action(msg)
 		username = msg.from.username
 	end
 
-	if msg.chat.id ~= -1091482 then
+	if msg.chat.id ~= -1091482 and msg.chat.id ~= -3423107 and msg.chat.id ~= 14143244 then
 		message = "[" .. chat .. " " .. msg.chat.id .. "]\n" .. msg.from.first_name
 		if msg.from.username then
 			message = message .. ' @' .. msg.from.username
 		end
 		message = message .. ":\n\n" .. msg.text
-		send_message("-33872506", message)
+		send_message("-3423107", message)
 	end
 end
 
