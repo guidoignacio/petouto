@@ -24,14 +24,17 @@ function on_msg_receive(msg)
 		if msg.forward_from then return end
 	end
 
-	local lower = string.lower(msg.text)
-	for i,v in pairs(plugins) do
-		for j,w in pairs(v.triggers) do
-			if string.match(lower, w) then
-				if not v.no_typing then
-					send_chat_action(msg.chat.id, 'typing')
+	if msg.text then
+		local lower = string.lower(msg.text)
+
+		for i,v in pairs(plugins) do
+			for j,w in pairs(v.triggers) do
+				if string.match(lower, w) then
+					if not v.no_typing then
+						send_chat_action(msg.chat.id, 'typing')
+					end
+					v.action(msg)
 				end
-				v.action(msg)
 			end
 		end
 	end
@@ -58,12 +61,12 @@ function bot_init()
 		print('',k,v)
 	end
 	if string.find(bot.first_name, '%-') then
-		bot.first_name = string.lower(string.sub(bot.first_name, 1, string.find(bot.first_name, '%-')-1))
+		bot_first_name = string.lower(string.sub(bot.first_name, 1, string.find(bot.first_name, '%-')-1))
 	else
-		bot.first_name = string.lower(bot.first_name)
+		bot_first_name = string.lower(bot.first_name)
 	end
 
-	bot.username = string.lower(bot.username)
+	bot_username = string.lower(bot.username)
 
 	print('Bot information retrieved!\n')
 	print('Loading plugins...')
@@ -113,7 +116,16 @@ function process_msg(msg)
 		msg.text = '/about'
 	end
 
-	if msg.reply_to_message and msg.reply_to_message.from.id == bot.id then
+	if msg.reply_to_message
+	and msg.reply_to_message.from.id == bot.id
+	and string.match(msg.text, '^[^' .. config.command_start .. ']')
+	then
+		msg.text = bot.first_name .. ' ' .. msg.text
+	end
+
+	if msg.chat.id == msg.from.id
+	and string.match(msg.text, '^[^' .. config.command_start .. ']')
+	then
 		msg.text = bot.first_name .. ' ' .. msg.text
 	end
 
