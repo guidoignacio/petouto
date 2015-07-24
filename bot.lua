@@ -126,7 +126,7 @@ function process_msg(msg)
 	if msg.text
 	and msg.chat.id == msg.from.id
 	and string.match(msg.text, '^[^' .. config.command_start .. ']')
-	and string.match(msg.text, '^[^start]$')
+	and string.match(msg.text, '^[^/start]$')
 	then
 		msg.text = '@' .. bot_username .. ' ' .. msg.text
 	end
