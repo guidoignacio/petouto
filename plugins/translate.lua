@@ -29,6 +29,7 @@ PLUGIN.action = function(msg)
 	end
 
 	local output = str:gmatch("%[%[%[\"(.*)\"")():gsub("\"(.*)", "")
+	local output = latcyr(output)
 
 	send_msg(msg.reply_to_message, output)
 

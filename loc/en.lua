@@ -52,7 +52,10 @@ return {
 		search		= 'search',
 		name		= 'name',
 		target_lang	= 'target lang',
-		tags		= 'tags'
+		tags		= 'tags',
+		from		= 'from',
+		to			= 'to',
+		username	= 'username'
 	},
 	plugins = {
 		about = {
@@ -137,6 +140,11 @@ return {
 			command		= 'commit',
 			help		= 'http://whatthecommit.com.',
 		},
+		currency = {
+			command		= 'cash',
+			help		= 'Convert an amount from one currency to another.' ..
+						  'Example: /cash USD EUR 5',
+		},
 		dice = {
 			command		= 'roll',
 			help		= 'Roll a die. Use any positive number for range or use D&D notation.\n' ..
@@ -182,6 +190,11 @@ return {
 		imdb = {
 			command		= 'imdb',
 			help		= 'This function retrieves the IMDB info for a given film or television series, including the year, genre, imdb rating, runtime, and a summation of the plot.',
+		},
+		lastfm = {
+			command		= 'playing',
+			help		= 'Get current- or last-played track data from last.fm. If a username is specified, it will return info for that username rather than your own.' ..
+						  '"/fmset username" will configure your last.fm username.',
 		},
 		lmgtfy = {
 			command		= 'lmgtfy',

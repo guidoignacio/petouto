@@ -17,7 +17,7 @@ function PLUGIN.action(msg)
 	local message, res = HTTP.request(url)
 
 	if res ~= 200 then
-		return send_msg(msg, config.locale.errors.connection)
+		return send_msg(msg, config.locale.errors.syntax)
 	end
 
 	send_msg(msg, message)

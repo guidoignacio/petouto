@@ -6,9 +6,11 @@ HTTPS = require('ssl.https')
 URL = require('socket.url')
 JSON = require('dkjson')
 
-VERSION = 2.4
+VERSION = 2.7
 
 function on_msg_receive(msg)
+
+	if config.blacklist[tostring(msg.from.id)] then return end
 
 	msg = process_msg(msg)
 
@@ -33,7 +35,13 @@ function on_msg_receive(msg)
 					if not v.no_typing then
 						send_chat_action(msg.chat.id, 'typing')
 					end
-					v.action(msg)
+					local a,b = pcall(function() -- Janky error handling
+						v.action(msg)
+					end)
+					if not a then
+						print(b)
+						send_msg(msg, b)
+					end
 				end
 			end
 		end
@@ -41,6 +49,7 @@ function on_msg_receive(msg)
 end
 
 function bot_init()
+	require('utilities')
 
 	print('\nLoading configuration...')
 
@@ -49,7 +58,6 @@ function bot_init()
 	print(#config.plugins .. ' plugins enabled.')
 
 	require('bindings')
-	require('utilities')
 
 	print('\nFetching bot information...')
 
@@ -116,12 +124,12 @@ function process_msg(msg)
 		msg.text = '/about'
 	end
 
-	if msg.reply_to_message
+	--[[if msg.reply_to_message
 	and msg.reply_to_message.from.id == bot.id
 	and string.match(msg.text, '^[^' .. config.command_start .. ']')
 	then
 		msg.text = '@' .. bot_username .. ' ' .. msg.text
-	end
+	end]]
 
 	if msg.text
 	and msg.chat.id == msg.from.id
@@ -138,9 +146,9 @@ end
 bot_init()
 reminders = {}
 last_update = 0
-while is_started == true do
+while is_started do
 
-	local res = get_updates(last_update)
+	local res = get_updates(last_update+1)
 	if not res then
 		print('Error getting updates.')
 	else
@@ -160,6 +168,5 @@ while is_started == true do
 			end
 		end
 	end
-
 end
 print('Halted.')

@@ -1,7 +1,14 @@
 return {
 	bot_api_key = '',
+	lastfm_api_key = '',
 	biblia_api_key = '',
 	giphy_api_key = 'dc6zaTOxFJmzC',
+	twitter = {
+		consumer_key = '',
+		consumer_secret = '',
+		access_token = '',
+		access_token_secret = ''
+	},
 	time_offset = 0,
 	command_start = '/',
 	ignore = {
@@ -11,8 +18,9 @@ return {
 	},
 	locale = dofile('loc/en.lua'),
 	admins = {
-		0
+		[0] = 'name'
 	},
+	blacklist = load_data('blacklist.json'),
 	plugins = {
 		'about.lua',
 		'help.lua',
@@ -45,9 +53,18 @@ return {
 		'reaction.lua',
 		'slap.lua',
 		'whoami.lua',
-		'lmgtfy.lua'
+		'lmgtfy.lua',
+		'translate.lua',
+		'currency.lua'
 	},
 	people = {
 		['55994550'] = 'topkecleon'
+	},
+	moderation = {
+		realm = -0,
+		data = 'moderation.json',
+		admins = {
+			[0] = 'nickname',
+		}
 	}
 }

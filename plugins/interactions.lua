@@ -7,8 +7,6 @@ local PLUGIN = {}
 
 PLUGIN.no_typing = true
 
-PLUGIN.triggers = {''}
-
 function PLUGIN.action(msg)
 
 	local input = string.lower(msg.text)

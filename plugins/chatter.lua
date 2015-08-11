@@ -22,7 +22,7 @@ function PLUGIN.action(msg)
 
 	local jdat = JSON.decode(jstr)
 
-	if string.match(jdat.res, '^I HAVE NO RESPONSE.') then
+	if string.match(jdat.res, '^I HAVE NO RESPONSE.') or not jdat then
 		jdat.res = config.locale.plugins.chatter.no_response
 	end
 
