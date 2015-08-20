@@ -55,7 +55,9 @@ return {
 		tags		= 'tags',
 		from		= 'from',
 		to			= 'to',
-		username	= 'username'
+		username	= 'username',
+		nickname	= 'nickname',
+		topic		= 'topic'
 	},
 	plugins = {
 		about = {
@@ -78,6 +80,10 @@ return {
 			command		= 'admin',
 			reload		= 'Bot reloaded!',
 			halt		= 'Shutting down...'
+		},
+		nick = {
+			command		= 'nick',
+			help		= 'Set your nickname for the bot to call you.',
 		},
 		eightball = {
 			command		= '8ball',
@@ -243,6 +249,11 @@ return {
 			command		= 'weather',
 			help		= 'Returns the current temperature and weather conditions for a specified location.\n' ..
 					  'Non-city locations are accepted; "/weather Buckingham Palace" will return the weather for Westminster.',
+		},
+		wikipedia = {
+			command		= 'wiki',
+			help		= 'Search Wikipedia for a relevant article and return its summary.',
+			language	= 'en',
 		},
 		whoami = {
 			command		= 'whoami',

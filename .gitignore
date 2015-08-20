@@ -1,4 +1,7 @@
 config.lua
+moderation.lua
+lastfm.lua
+nicknames.lua
 loc/weeb.lua
 loc/peto.lua
 plugins/brovrashgka.lua

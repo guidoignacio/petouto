@@ -30,6 +30,7 @@ PLUGIN.triggers = {
 	['◕︵◕'] = config.command_start .. 'sad$',
 	['( ﾟoﾟ)'] = config.command_start .. 'surprised$',
 	['˚▱˚'] = config.command_start .. 'gasp$',
+	['👏👏👏👏👏👏'] = config.command_start .. 'clap$',
 	['ザ・ワールド！'] = config.command_start .. 'zawarudo$',
 	['時よ止まれ！'] = config.command_start .. 'tokiwotomare$',
 	['無駄無駄無駄\n    無駄無駄無駄無駄\n   無駄無駄無駄\n      無駄無駄無駄無駄\n     無駄無駄無駄\n        無駄無駄無駄無駄\n       無駄無駄無駄\n          無駄無駄無駄無駄！'] = config.command_start .. 'mudamudamuda$',

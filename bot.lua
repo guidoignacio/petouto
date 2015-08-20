@@ -6,7 +6,7 @@ HTTPS = require('ssl.https')
 URL = require('socket.url')
 JSON = require('dkjson')
 
-VERSION = 2.7
+VERSION = 2.8
 
 function on_msg_receive(msg)
 
@@ -26,22 +26,20 @@ function on_msg_receive(msg)
 		if msg.forward_from then return end
 	end
 
-	if msg.text then
-		local lower = string.lower(msg.text)
+	local lower = string.lower(msg.text)
 
-		for i,v in pairs(plugins) do
-			for j,w in pairs(v.triggers) do
-				if string.match(lower, w) then
-					if not v.no_typing then
-						send_chat_action(msg.chat.id, 'typing')
-					end
-					local a,b = pcall(function() -- Janky error handling
-						v.action(msg)
-					end)
-					if not a then
-						print(b)
-						send_msg(msg, b)
-					end
+	for i,v in pairs(plugins) do
+		for j,w in pairs(v.triggers) do
+			if string.match(lower, w) then
+				if not v.no_typing then
+					send_chat_action(msg.chat.id, 'typing')
+				end
+				local a,b = pcall(function() -- Janky error handling
+					v.action(msg)
+				end)
+				if not a then
+					print(b)
+					send_msg(msg, b)
 				end
 			end
 		end
@@ -124,12 +122,12 @@ function process_msg(msg)
 		msg.text = '/about'
 	end
 
-	--[[if msg.reply_to_message
+	if msg.reply_to_message
 	and msg.reply_to_message.from.id == bot.id
 	and string.match(msg.text, '^[^' .. config.command_start .. ']')
 	then
 		msg.text = '@' .. bot_username .. ' ' .. msg.text
-	end]]
+	end
 
 	if msg.text
 	and msg.chat.id == msg.from.id

@@ -1,10 +1,11 @@
 local PLUGIN = {}
 
+PLUGIN.typing = true -- usually takes a few seconds to load
+
 PLUGIN.doc = config.command_start .. config.locale.plugins.hackernews.command .. '\n' .. config.locale.plugins.hackernews.help
 
 PLUGIN.triggers = {
-	'^' .. config.command_start .. config.locale.plugins.hackernews.command,
-	'^' .. config.command_start .. 'hn$'
+	'^' .. config.command_start .. config.locale.plugins.hackernews.command
 }
 
 function PLUGIN.action(msg)

@@ -5,13 +5,17 @@
 
 local PLUGIN = {}
 
-PLUGIN.no_typing = true
+PLUGIN.triggers = {""}
 
 function PLUGIN.action(msg)
 
 	local input = string.lower(msg.text)
 
-	if config.people[tostring(msg.from.id)] then msg.from.first_name = config.people[tostring(msg.from.id)] end
+	local data = load_data('nicknames.json')
+	local id = tostring(msg.from.id)
+	local nick = msg.from.first_name
+
+	if data[id] then nick = data[id] end
 
 	-- if the first name end with -chan, -tan, -kun or similar it ignores them
 	if string.find(bot.first_name, '%-') then
@@ -23,7 +27,7 @@ function PLUGIN.action(msg)
 	for k,v in pairs(config.locale.interactions) do
 		for key,val in pairs(v) do
 			if input:match(val:gsub('#BOTNAME', bot.first_name)) then
-				return send_message(msg.chat.id, k:gsub('#NAME', msg.from.first_name))
+				return send_message(msg.chat.id, k:gsub('#NAME', nick))
 			end
 		end
 	end
