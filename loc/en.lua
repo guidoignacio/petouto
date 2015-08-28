@@ -29,6 +29,7 @@ return {
 		argument	= 'Invalid argument.',
 		syntax		= 'Invalid syntax.',
 		permission	= 'Permission denied.'
+		id			= 'Must be used via reply or by specifying a user\'s ID.'
 	},
 	arguments = {
 		command		= 'command',
@@ -81,9 +82,15 @@ return {
 			reload		= 'Bot reloaded!',
 			halt		= 'Shutting down...'
 		},
+		blacklist = {
+			command		= 'blacklist',
+			added		= 'User has been removed from the blacklist.',
+			removed		= 'User has been blacklisted.'
+		},
 		nick = {
 			command		= 'nick',
 			help		= 'Set your nickname for the bot to call you.',
+			set			= 'Your nickname has been set to ',
 		},
 		eightball = {
 			command		= '8ball',
@@ -136,6 +143,10 @@ return {
 		calc = {
 			command		= 'calc',
 			help		= 'This command solves math expressions and does conversion between common units. See mathjs.org/docs/expressions/syntax for a list of accepted syntax.',
+		},
+		cats = {
+			command		= 'cats',
+			help		= 'Get a cat pic!',
 		},
 		chatter = {
 			language	= 'en',
@@ -201,6 +212,11 @@ return {
 			command		= 'playing',
 			help		= 'Get current- or last-played track data from last.fm. If a username is specified, it will return info for that username rather than your own.' ..
 						  '"/fmset username" will configure your last.fm username.',
+			fmset		= 'Your last.fm username has been set to ',
+			nofmset		= 'Please provide a valid last.fm username.\nYou can set yours with /fmset.',
+			nohistory	= 'No history for that user.',
+			listened	= 'last listened to',
+			listening	= 'is listening to',
 		},
 		lmgtfy = {
 			command		= 'lmgtfy',
@@ -213,6 +229,10 @@ return {
 		pun = {
 			command		= 'pun',
 			help		= 'Get a random pun.\nHave a recommendation? PM @topkecleon.',
+		},
+		reaction = {
+			command		= 'reactions',
+			help		= 'Get a list of the available reaction emoticons.',
 		},
 		reddit = {
 			command		= 'reddit',

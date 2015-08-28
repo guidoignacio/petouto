@@ -2,11 +2,9 @@
 
 local PLUGIN = {}
 
-PLUGIN.typing = true
-
 PLUGIN.triggers = {
-	'@' .. bot.username,
-	'^' .. bot.first_name
+	'@' .. bot_username,
+	'^' .. bot_first_name
 }
 
 function PLUGIN.action(msg)
@@ -32,9 +30,10 @@ function PLUGIN.action(msg)
 
 	-- Let's clean up the response a little. Capitalization & punctuation.
 	filter = {
-		['%aim%aimi'] = bot.first_name,
+		['%aimi?%aimi?'] = bot.first_name,
 		['^%s*(.-)%s*$'] = '%1',
-		['^%l'] = string.upper
+		['^%l'] = string.upper,
+		['USER'] = msg.from.first_name
 	}
 
 	for k,v in pairs(filter) do

@@ -10,3 +10,4 @@ plugins/sibyl.lua
 console.lua
 *.json
 plugins/owm.lua
+plugins/liberblock.lua

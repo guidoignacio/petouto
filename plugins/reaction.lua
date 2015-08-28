@@ -1,6 +1,6 @@
-local PLUGIN = {}
+local doc = config.command_start .. config.locale.plugins.reaction.command .. '\n' .. config.locale.plugins.reaction.help
 
-PLUGIN.triggers = {
+local triggers = {
 	['¯\\_(ツ)_/¯'] = config.command_start .. 'shrug$',
 	['( ͡° ͜ʖ ͡°)'] = config.command_start .. 'lenny$',
 	['ಠ_ಠ'] = config.command_start .. 'disapprove$',
@@ -40,11 +40,11 @@ PLUGIN.triggers = {
 	['オラオラオラ\n    オラオラオラオラ\n   オラオラオラ\n      オラオラオラオラ\n     オラオラオラ\n        オラオラオラオラ\n       オラオラオラ\n          オラオラオラオラ！'] = config.command_start .. 'oraoraora$'
 }
 
-function PLUGIN.action(msg)
+local action = function(msg)
 
 	local message = string.lower(msg.text)
 
-	for k,v in pairs(PLUGIN.triggers) do
+	for k,v in pairs(triggers) do
 		if string.match(message, v) then
 			message = k
 		end
@@ -58,4 +58,18 @@ function PLUGIN.action(msg)
 
 end
 
-return PLUGIN
+-- The following block of code will generate a list of reactions add the trigger "/reactions" to display it.
+-- Thanks to @Imandaneshi for the idea and early implementation.
+local help = ''
+for k,v in pairs(triggers) do
+	if v ~= '^/reactions?' then
+		help = help .. v:gsub('%$', ': ') .. k .. '\n'
+	end
+end
+triggers[help] = '^' .. config.command_start .. config.locale.plugins.reaction.command
+
+return {
+	triggers = triggers,
+	action = action,
+	doc = doc
+}

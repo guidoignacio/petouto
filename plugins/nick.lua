@@ -15,7 +15,7 @@ local action = function(msg)
 
 	data[id] = input
 	save_data('nicknames.json', data)
-	send_msg(msg, 'Your nickname has been set to ' .. input .. '.')
+	send_msg(msg, config.locale.plugins.nick.set .. input .. '.')
 
 end
 

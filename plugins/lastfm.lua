@@ -26,7 +26,7 @@ function PLUGIN.action(msg)
 
 		save_data('lastfm.json', data)
 
-		send_msg(msg, 'Your last.fm username has been set to ' .. input .. '.')
+		send_msg(msg, config.locale.plugins.lastfm.fmset .. input .. '.')
 
 		return
 
@@ -42,7 +42,7 @@ function PLUGIN.action(msg)
 		elseif msg.from.username then
 			input = msg.from.username
 		else
-			return send_msg(msg, 'Please provide a valid last.fm username.\nYou can set yours with /fmset.')
+			return send_msg(msg, config.locale.plugins.lastfm.nofmset)
 		end
 	end
 
@@ -55,18 +55,25 @@ function PLUGIN.action(msg)
 	local jdat = JSON.decode(jstr)
 
 	if jdat.error then
-		return send_msg(msg, 'Please provide a valid last.fm username.\nYou can set yours with /fmset.')
+		return send_msg(msg, config.locale.plugins.lastfm.nofmset)
 	end
 
 	if not jdat.recenttracks.track then
-		return send_msg(msg, 'No history for that user.')
+		return send_msg(msg, config.locale.plugins.lastfm.nohistory)
 	end
 
 	local jdat = jdat.recenttracks.track[1] or jdat.recenttracks.track
 
-	local message = '🎵  ' .. input .. ' last listened to:\n'
+	local message = '🎵  ' .. msg.from.first_name .. ' ' .. config.locale.plugins.lastfm.listened .. ':\n'
 	if jdat['@attr'] and jdat['@attr'].nowplaying then
-		message = '🎵  ' .. input .. ' is listening to:\n'
+		message = '🎵  ' .. msg.from.first_name .. ' ' .. config.locale.plugins.lastfm.listening .. ':\n'
+	end
+
+	local artist
+	if jdat.artist then
+		artist = jdat.artist['#text']
+	else
+		artist = 'Unknown'
 	end
 
 	local message = message .. jdat.name .. ' - ' .. jdat.artist['#text']

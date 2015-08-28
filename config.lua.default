@@ -2,6 +2,7 @@ return {
 	bot_api_key = '',
 	lastfm_api_key = '',
 	biblia_api_key = '',
+	thecatapi_key = '',
 	giphy_api_key = 'dc6zaTOxFJmzC',
 	twitter = {
 		consumer_key = '',
@@ -35,6 +36,7 @@ return {
 		'imdb.lua',
 		'urbandictionary.lua',
 		'hackernews.lua',
+		'cats.lua',
 		'time.lua',
 		'weather.lua',
 		'calc.lua',
