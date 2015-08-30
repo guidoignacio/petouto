@@ -25,10 +25,10 @@ local action = function(msg)
 
 	if config.blacklist[id] then
 		config.blacklist[id] = nil
-		send_message(msg.chat.id, config.locale.plugins.blacklist.added)
+		send_message(msg.chat.id, config.locale.plugins.blacklist.removed)
 	else
 		config.blacklist[id] = true
-		send_message(msg.chat.id, config.locale.plugins.blacklist.removed)
+		send_message(msg.chat.id, config.locale.plugins.blacklist.added)
 	end
 
 	save_data('blacklist.json', config.blacklist)

@@ -122,7 +122,8 @@ function process_msg(msg)
 		msg.text = '/about'
 	end
 
-	if msg.reply_to_message
+	if msg.text
+	and msg.reply_to_message
 	and msg.reply_to_message.from.id == bot.id
 	and string.match(msg.text, '^[^' .. config.command_start .. ']')
 	then

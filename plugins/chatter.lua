@@ -10,7 +10,7 @@ PLUGIN.triggers = {
 function PLUGIN.action(msg)
 
 	local input = get_input(msg.text)
-	print(input)
+	if not input then return end
 	
 	local url = 'http://www.simsimi.com/requestChat?lc=' .. config.locale.plugins.chatter.language .. '&ft=1.0&req=' .. URL.escape(input)
 
