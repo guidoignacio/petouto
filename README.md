@@ -12,149 +12,64 @@ To start, send "/start" or say "Hello, petouto."
 <table>
   <thead>
     <tr>
-      <td>help.lua</td>
-      <td>/help [command]</td>
+      <td>/help</td>
       <td>List commands</td>
     </tr>
     <tr>
-      <td>about.lua</td>
-      <td>/about</td>
-      <td>Information about the bot</td>
+      <td>/cid</td>
+      <td>Current chat id</td>
     </tr>
     <tr>
-      <td>gSearch.lua</td>
-      <td>/google &lt;query&gt;</td>
-      <td>Google Search</td>
-    </tr>
-    <tr>
-      <td>gImages.lua</td>
-      <td>/images &lt;query&gt;</td>
-      <td>Google Images search</td>
-    </tr>
-    <tr>
-      <td>reddit.lua</td>
-      <td>/reddit [r/subreddit | query]</td>
-      <td>Posts from reddit</td>
-    </tr>
-    <tr>
-      <td>giphy.lua</td>
-      <td>/giphy [query]</td>
-      <td>Giphy search or random</td>
-    </tr>
-    <tr>
-      <td>xkcd.lua</td>
-      <td>/xkcd [search]</td>
-      <td>xkcd strips and alt text</td>
-    </tr>
-    <tr>
-      <td>gMaps.lua</td>
-      <td>/loc &lt;location&gt;</td>
-      <td>Google Maps search</td>
-    </tr>
-    <tr>
-      <td>imdb.lua</td>
-      <td>/imdb &lt;movie | TV series&gt;</td>
-      <td>IMDb movie/television info</td>
-    </tr>
-    <tr>
-      <td>urbandictionary.lua</td>
-      <td>/ud &lt;term&gt;</td>
-      <td>Urban Dictionary search</td>
-    </tr>
-    <tr>
-      <td>hackernews.lua</td>
-      <td>/hackernews</td>
-      <td>Top stories from Hackernews</td>
-    </tr>
-    <tr>
-      <td>time.lua</td>
-      <td>/time &lt;location&gt;</td>
-      <td>Get the time for a place</td>
-    </tr>
-    <tr>
-      <td>weather.lua</td>
-      <td>/weather &lt;location&gt;</td>
-      <td>Get the weather for a place</td>
-    </tr>
-    <tr>
-      <td>calc.lua</td>
-      <td>/calc &lt;expression&gt;</td>
-      <td>Solve math expression and convert units</td>
-    </tr>
-    <tr>
-      <td>dice.lua</td>
-      <td>/roll [arg]</td>
-      <td>Roll a die. Accepts D&amp;D notation</td>
-    </tr>
-    <tr>
-      <td>remind.lua</td>
-      <td>/remind &lt;delay&gt; &lt;message&gt;</td>
-      <td>Set a reminder for yourself or a group</td>
-    </tr>
-    <tr>
-      <td>8ball.lua</td>
-      <td>/8ball</td>
-      <td>Magic 8-ball</td>
-    </tr>
-    <tr>
-      <td>bandersnatch.lua</td>
-      <td>/bandersnatch</td>
-      <td>Benedict Cumberbatch name generator</td>
-    </tr>
-    <tr>
-      <td>bible.lua</td>
-      <td>/bible &lt;verse&gt;</td>
-      <td>King James Version</td>
-    </tr>
-    <tr>
-      <td>btc.lua</td>
-      <td>/btc &lt;currency&gt; [amount]</td>
-      <td>Bitcoin prices and conversion</td>
-    </tr>
-    <tr>
-      <td>commit.lua</td>
-      <td>/commit</td>
-      <td>http://whatthecommit.com</td>
-    </tr>
-    <tr>
-      <td>dogify.lua</td>
-      <td>/dogify &lt;lines/separatedby/slashes&gt;</td>
-      <td>Create a doge image</td>
-    </tr>
-    <tr>
-      <td>echo.lua</td>
-      <td>/echo &lt;text&gt;</td>
-      <td>Repeat a string</td>
-    </tr>
-    <tr>
-      <td>fortune.lua</td>
-      <td>/fortune</td>
-      <td>Random fortunes</td>
-    </tr>
-    <tr>
-      <td>hex.lua</td>
-      <td>/hex &lt;number&gt;</td>
-      <td>Convert to and from hexadecimal</td>
-    </tr>
-    <tr>
-      <td>pokedex.lua</td>
-      <td>/dex &lt;pokemon&gt;</td>
-      <td>Pokedex!</td>
-    </tr>
-    <tr>
-      <td>pun.lua</td>
-      <td>/pun</td>
-      <td>Puns</td>
-    </tr>
-    <tr>
-      <td>slap.lua</td>
-      <td>/slap [victim]</td>
-      <td>Slap someone!</td>
-    </tr>
-    <tr>
-      <td>whoami.lua</td>
       <td>/who</td>
-      <td>Get user and group IDs</td>
+      <td>Your uid or reply</td>
+    </tr>
+    <tr>
+      <td>/send <cid> <message></td>
+      <td>Send msg to cid (only owner)</td>
+    </tr>
+    <tr>
+      <td>/kick <uid> or reply</td>
+      <td>Kick a user (only owner)</td>
+    </tr>
+    <tr>
+      <td>/unban <uid> or reply</td>
+      <td>Unban a user</td>
+    </tr>
+    <tr>
+      <td>/echo <text></td>
+      <td>Echo a text</td>
+    </tr>
+    <tr>
+      <td>/dados</td>
+      <td>Random number 1-6</td>
+    </tr>
+    <tr>
+      <td>/saluda</td>
+      <td>Zulma say</td>
+    </tr>
+    <tr>
+      <td>/facha</td>
+      <td>Picture beatifull guy</td>
+    </tr>
+    <tr>
+      <td>/esta</td>
+      <td>This!!!</td>
+    </tr>
+    <tr>
+      <td>/muere <name></td>
+      <td>Cat kill you</td>
+    </tr>
+    <tr>
+      <td>/gay <name></td>
+      <td>You're gay and I tell</td>
+    </tr>
+    <tr>
+      <td>/es <closed question></td>
+      <td>Make me a closed question and answer you</td>
+    </tr>
+    <tr>
+      <td>/acerca [arg]</td>
+      <td>About this bot</td>
     </tr>
   </tbody>
 </table>
